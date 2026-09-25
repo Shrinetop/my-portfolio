@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Krishal Maharjan | Resume</title>
+  <meta name="description" content="Resume of Krishal Maharjan: Business Administration graduate (Honours, Cum Laude) with the IFC certification. Operations, client service, and process improvement.">
+  <meta name="author" content="Krishal Maharjan">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%230062d1'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial,Helvetica,sans-serif' font-size='26' font-weight='700' fill='%23fff'%3EKM%3C/text%3E%3C/svg%3E">
+
+  <script>
+    /*
+     * Pick the resume style before first paint.
+     * ?variant=standard|dyslexia|contrast (and &font=opendyslexic) wins; otherwise
+     * follow the accessibility settings saved on the portfolio (same origin).
+     * tools/build-resumes.cjs uses the query string to print each PDF.
+     */
+    (function () {
+      var root = document.documentElement;
+      var params = new URLSearchParams(window.location.search);
+      var variant = params.get('variant');
+      var font = params.get('font');
+
+      if (!variant) {
+        try {
+          var s = JSON.parse(localStorage.getItem('a11y-settings') || '{}') || {};
+          if (s.dyslexia === true) {
+            variant = 'dyslexia';
+            font = s.font;
+          } else if (s.vision && s.vision !== 'default') {
+            variant = 'contrast';
+          }
+        } catch (err) { /* storage unavailable */ }
+      }
+
+      try {
+        var theme = localStorage.getItem('theme');
+        if (theme === 'light' || theme === 'dark') root.setAttribute('data-theme', theme);
+      } catch (err) { /* storage unavailable */ }
+
+      if (!/^(dyslexia|contrast)$/.test(variant)) variant = 'standard';
+      root.setAttribute('data-variant', variant);
+      if (variant === 'dyslexia' && font === 'opendyslexic') root.setAttribute('data-font', 'opendyslexic');
+
+      var names = { dyslexia: 'Dyslexia-friendly', contrast: 'High contrast' };
+      if (names[variant]) document.title = 'Krishal Maharjan | Resume (' + names[variant] + ')';
+    })();
+  </script>
+
+  <style>
+    /* ---------- Fonts (self-hosted, SIL Open Font License) ---------- */
+    @font-face {
+      font-family: "Lexend";
+      src: url("assets/fonts/lexend-latin-400-normal.woff2") format("woff2");
+      font-weight: 400;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Lexend";
+      src: url("assets/fonts/lexend-latin-600-normal.woff2") format("woff2");
+      font-weight: 500 600;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Lexend";
+      src: url("assets/fonts/lexend-latin-700-normal.woff2") format("woff2");
+      font-weight: 700 900;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "OpenDyslexic";
+      src: url("assets/fonts/opendyslexic-latin-400-normal.woff2") format("woff2");
+      font-weight: 400;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "OpenDyslexic";
+      src: url("assets/fonts/opendyslexic-latin-700-normal.woff2") format("woff2");
+      font-weight: 700;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Atkinson Hyperlegible";
+      src: url("assets/fonts/atkinson-hyperlegible-latin-400-normal.woff2") format("woff2");
+      font-weight: 400;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Atkinson Hyperlegible";
+      src: url("assets/fonts/atkinson-hyperlegible-latin-700-normal.woff2") format("woff2");
+      font-weight: 700;
+      font-display: swap;
+    }
+
+    /* ---------- Tokens: standard ---------- */
+    :root {
+      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Helvetica, Arial, sans-serif;
+      --size: 16px;
+      --leading: 1.6;
+      --tracking: normal;
+      --word: normal;
+      --bg: #fbfaf7;
+      --text: #1c1d1f;
+      --muted: #50545b;
+      --line: #d9d6cf;
+      --accent: #1f4e79;
+      --rule: 1px;
+      --heading-case: uppercase;
+      --heading-tracking: 0.12em;
+      --org-style: italic;
+      --max: 820px;
+      color-scheme: light;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #131416;
+        --text: #ecebe8;
+        --muted: #a9adb4;
+        --line: #33363b;
+        --accent: #8db8e3;
+        color-scheme: dark;
+      }
+    }
+
+    :root[data-theme="dark"] {
+      --bg: #131416;
+      --text: #ecebe8;
+      --muted: #a9adb4;
+      --line: #33363b;
+      --accent: #8db8e3;
+      color-scheme: dark;
+    }
+
+    /* ---------- Tokens: dyslexia-friendly ---------- */
+    :root[data-variant="dyslexia"] {
+      --font: "Lexend", Verdana, Tahoma, sans-serif;
+      --size: 18px;
+      --leading: 1.75;
+      --tracking: 0.035em;
+      --word: 0.14em;
+      --bg: #fbf5e6;
+      --text: #1f1f1f;
+      --muted: #333333;
+      --line: #cbbf9f;
+      --accent: #1f4e79;
+      --heading-case: none;
+      --heading-tracking: 0.03em;
+      --org-style: normal;
+    }
+
+    /* OpenDyslexic has generous spacing built in, so it needs less added tracking. */
+    :root[data-variant="dyslexia"][data-font="opendyslexic"] {
+      --font: "OpenDyslexic", "Lexend", Verdana, sans-serif;
+      --size: 17px;
+      --tracking: 0;
+      --word: 0.08em;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"])[data-variant="dyslexia"] {
+        --bg: #1f1d18;
+        --text: #efe9dc;
+        --muted: #d8d1c2;
+        --line: #4a4535;
+        --accent: #9cc4ea;
+      }
+    }
+
+    :root[data-theme="dark"][data-variant="dyslexia"] {
+      --bg: #1f1d18;
+      --text: #efe9dc;
+      --muted: #d8d1c2;
+      --line: #4a4535;
+      --accent: #9cc4ea;
+    }
+
+    /* ---------- Tokens: high contrast / large print ---------- */
+    :root[data-variant="contrast"] {
+      --font: "Atkinson Hyperlegible", Verdana, Arial, sans-serif;
+      --size: 19px;
+      --leading: 1.55;
+      --tracking: 0.01em;
+      --bg: #ffffff;
+      --text: #000000;
+      --muted: #000000;
+      --line: #000000;
+      --accent: #000000;
+      --rule: 3px;
+      --heading-case: none;
+      --heading-tracking: 0.02em;
+      --org-style: normal;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"])[data-variant="contrast"] {
+        --bg: #000000;
+        --text: #ffffff;
+        --muted: #ffffff;
+        --line: #ffffff;
+        --accent: #ffffff;
+      }
+    }
+
+    :root[data-theme="dark"][data-variant="contrast"] {
+      --bg: #000000;
+      --text: #ffffff;
+      --muted: #ffffff;
+      --line: #ffffff;
+      --accent: #ffffff;
+    }
+
+    /* ---------- Layout ---------- */
+    * { box-sizing: border-box; }
+
+    html {
+      background: var(--bg);
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--bg);
+      font-family: var(--font);
+      font-size: var(--size);
+      line-height: var(--leading);
+      letter-spacing: var(--tracking);
+      word-spacing: var(--word);
+    }
+
+    a { color: var(--accent); text-underline-offset: 3px; }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px 20px;
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--line);
+      background: var(--bg);
+      font-size: 0.9rem;
+    }
+
+    .toolbar__variants {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .toolbar__variants a,
+    .toolbar__download {
+      display: inline-block;
+      padding: 6px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .toolbar__variants a[aria-current="page"] {
+      border-color: var(--text);
+      font-weight: 700;
+      box-shadow: inset 0 0 0 1px var(--text);
+    }
+
+    .toolbar__download {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: var(--bg);
+      font-weight: 700;
+    }
+
+    .resume {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 48px 20px 64px;
+    }
+
+    h1, h2, h3 { margin: 0; line-height: 1.25; }
+    p { margin: 0; }
+
+    .resume__header { text-align: center; }
+
+    h1 {
+      font-size: 2em;
+      letter-spacing: var(--heading-tracking);
+      text-transform: var(--heading-case);
+    }
+
+    .contact-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2px 0;
+      margin: 8px 0 0;
+      padding: 0;
+      list-style: none;
+      color: var(--text);
+    }
+
+    .contact-list li + li::before {
+      content: "|";
+      margin: 0 0.6em;
+      color: var(--muted);
+    }
+
+    section { margin-top: 26px; }
+
+    h2 {
+      padding-bottom: 4px;
+      border-bottom: var(--rule) solid var(--text);
+      font-size: 1.05em;
+      letter-spacing: var(--heading-tracking);
+      text-transform: var(--heading-case);
+      break-after: avoid;
+    }
+
+    .role, .edu { margin-top: 14px; }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0 16px;
+      break-after: avoid;
+    }
+
+    h3 { font-size: 1em; }
+
+    .date { font-weight: 700; white-space: nowrap; }
+
+    .org { font-style: var(--org-style); }
+
+    ul.points { margin: 4px 0 0; padding-left: 1.3em; }
+    ul.points li { margin-top: 3px; break-inside: avoid; }
+
+    .skills { margin: 8px 0 0; padding: 0; list-style: none; }
+    .skills li { margin-top: 4px; }
+
+    .verify { font-size: 0.9em; }
+
+    /* ---------- Variant layout tweaks ---------- */
+    [data-variant="dyslexia"] .resume__header,
+    [data-variant="contrast"] .resume__header { text-align: left; }
+
+    [data-variant="dyslexia"] .contact-list,
+    [data-variant="contrast"] .contact-list {
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    [data-variant="dyslexia"] .contact-list li + li::before,
+    [data-variant="contrast"] .contact-list li + li::before { content: none; }
+
+    [data-variant="dyslexia"] section,
+    [data-variant="contrast"] section { margin-top: 34px; }
+
+    [data-variant="dyslexia"] h2,
+    [data-variant="contrast"] h2 { font-size: 1.3em; }
+
+    [data-variant="dyslexia"] .role,
+    [data-variant="dyslexia"] .edu,
+    [data-variant="contrast"] .role,
+    [data-variant="contrast"] .edu { margin-top: 20px; }
+
+    [data-variant="dyslexia"] ul.points li,
+    [data-variant="contrast"] ul.points li { margin-top: 8px; }
+
+    [data-variant="dyslexia"] .skills li,
+    [data-variant="contrast"] .skills li { margin-top: 8px; }
+
+    /* ---------- Print / PDF ---------- */
+    @media print {
+      :root,
+      :root:not([data-theme="light"]),
+      :root[data-theme="dark"] {
+        --bg: #ffffff;
+        --text: #000000;
+        --muted: #333333;
+        --line: #999999;
+        --accent: #000000;
+        color-scheme: light;
+      }
+
+      :root[data-variant="dyslexia"],
+      :root:not([data-theme="light"])[data-variant="dyslexia"],
+      :root[data-theme="dark"][data-variant="dyslexia"] {
+        --bg: #fbf5e6;
+        --text: #1f1f1f;
+        --muted: #333333;
+        --line: #cbbf9f;
+        --accent: #1f1f1f;
+        --size: 12pt;
+      }
+
+      /* OpenDyslexic runs large per point: 11pt reads like 12pt Lexend. */
+      :root[data-variant="dyslexia"] { --leading: 1.5; }
+      :root[data-variant="dyslexia"][data-font="opendyslexic"] { --size: 11pt; --leading: 1.45; }
+      :root[data-variant="contrast"] { --leading: 1.35; }
+      [data-variant="contrast"] .resume,
+      [data-font="opendyslexic"] .resume { padding: 0.5in 0.6in; }
+
+      [data-variant="dyslexia"] section,
+      [data-variant="contrast"] section { margin-top: 18px; }
+
+      [data-variant="dyslexia"] .role,
+      [data-variant="dyslexia"] .edu,
+      [data-variant="contrast"] .role,
+      [data-variant="contrast"] .edu { margin-top: 10px; }
+
+      [data-variant="dyslexia"] ul.points li,
+      [data-variant="contrast"] ul.points li,
+      [data-variant="dyslexia"] .skills li,
+      [data-variant="contrast"] .skills li { margin-top: 4px; }
+
+      :root[data-variant="contrast"],
+      :root:not([data-theme="light"])[data-variant="contrast"],
+      :root[data-theme="dark"][data-variant="contrast"] {
+        --bg: #ffffff;
+        --text: #000000;
+        --muted: #000000;
+        --line: #000000;
+        --accent: #000000;
+        --size: 14pt;
+      }
+
+      /*
+       * Zero page margins let the (cream) background run to the paper edge;
+       * the padding is cloned onto every page to act as the margin instead.
+       */
+      @page { size: letter; margin: 0; }
+
+      .toolbar, .screen-only { display: none !important; }
+      .resume {
+        max-width: none;
+        padding: 0.55in 0.65in;
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+      }
+      a { color: inherit; text-decoration: none; }
+      .role { break-inside: auto; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="toolbar screen-only" aria-label="Resume options">
+    <a href="index.html">&larr; Back to portfolio</a>
+    <ul class="toolbar__variants" aria-label="Resume style">
+      <li><a href="?variant=standard" data-variant-link="standard">Standard</a></li>
+      <li><a href="?variant=dyslexia" data-variant-link="dyslexia">Dyslexia-friendly</a></li>
+      <li><a href="?variant=contrast" data-variant-link="contrast">High contrast</a></li>
+    </ul>
+    <a class="toolbar__download" href="assets/resume/Krishal_Maharjan_Resume.pdf" download data-pdf-link>Download PDF</a>
+  </nav>
+
+  <main class="resume">
+    <header class="resume__header">
+      <h1>Krishal Maharjan</h1>
+      <ul class="contact-list" aria-label="Contact details">
+        <li>Mississauga, ON</li>
+        <li><a href="tel:+14372612129">(437) 261-2129</a></li>
+        <li><a href="mailto:kmaharjan1212@gmail.com">kmaharjan1212@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/krishal-maharjan">linkedin.com/in/krishal-maharjan</a></li>
+      </ul>
+      <ul class="contact-list" aria-label="Availability">
+        <li>Open to relocation</li>
+        <li>Available any time, including evenings and weekends</li>
+      </ul>
+    </header>
+
+    <section aria-labelledby="h-profile">
+      <h2 id="h-profile">Profile</h2>
+      <p style="margin-top: 8px">
+        Business Administration graduate (Honours, Cum Laude) with the Investment Funds in Canada
+        (IFC) certification and 16 months of co-op experience in high-volume service and operations.
+        Resolved <strong>40&ndash;60 requests a day at 100% SLA compliance</strong>, cut print and
+        supply costs <strong>32%</strong> through Excel analysis, and reconciled up to
+        <strong>$2,500 in daily transactions at 100% accuracy</strong>.
+      </p>
+    </section>
+
+    <section aria-labelledby="h-experience">
+      <h2 id="h-experience">Experience</h2>
+
+      <article class="role">
+        <div class="row">
+          <h3>Administrative Service Assistant (Co-op)</h3>
+          <p class="date">May 2024 &ndash; Aug 2025</p>
+        </div>
+        <p class="org">Algoma University, IT Department, Brampton, ON</p>
+        <ul class="points">
+          <li><strong>Service delivery:</strong> Resolved <strong>40&ndash;60 requests daily</strong>, including <strong>10&ndash;20 phone calls</strong>, through the Freshservice ticketing system at <strong>100% SLA compliance</strong> for a campus of about <strong>5,000 students</strong>, escalating non-standard issues.</li>
+          <li><strong>Cost reduction:</strong> Cut print and supply costs by <strong>32%</strong> by analyzing multi-device usage data in Excel (XLOOKUP, data summaries) and presenting findings at a monthly department meeting, leading to per-print page limits and a <strong>$20</strong> rechargeable balance in place of <strong>$50</strong> per semester.</li>
+          <li><strong>System migration:</strong> Supported the move from Kofax Equitrac to PaperCut by configuring and testing the new platform, migrating user print balances, and helping staff through the changeover.</li>
+          <li><strong>Onboarding:</strong> Onboarded and trained <strong>5&ndash;7 new staff each semester</strong> across other departments and faculty against documented SOPs, setting up laptops and accounts and resolving login issues.</li>
+          <li><strong>Workspace redesign:</strong> Led a redesign from 3D scan and Blender mockup through implementation, coordinating vendors and facilities scheduling to improve accessibility and space efficiency.</li>
+          <li><strong>Digital signage:</strong> Led a campus signage rollout, using foot-traffic analysis to choose placements and working with Health &amp; Safety to meet egress-clearance and non-obstruction requirements.</li>
+        </ul>
+      </article>
+
+      <article class="role">
+        <div class="row">
+          <h3>Service &amp; Operations Team Member</h3>
+          <p class="date">May 2022 &ndash; Dec 2022</p>
+        </div>
+        <p class="org">Copper Branch, Mississauga, ON</p>
+        <ul class="points">
+          <li><strong>Cash handling:</strong> Processed and reconciled <strong>$1,500&ndash;$2,500</strong> in daily cash and card transactions at <strong>100% accuracy</strong>, including end-of-day drawer reconciliation under store audit standards.</li>
+          <li><strong>Customer service:</strong> Served <strong>10&ndash;12 customers per hour</strong> at peak, taking phone orders, recommending menu additions, and resolving complaints with judgment-based remedies.</li>
+        </ul>
+      </article>
+
+      <article class="role">
+        <div class="row">
+          <h3>Radio Presenter</h3>
+          <p class="date">2019 &ndash; 2021</p>
+        </div>
+        <p class="org">HITS FM 91.2, Kathmandu, Nepal</p>
+        <ul class="points">
+          <li><strong>Live broadcasting:</strong> Produced and hosted live programming to strict on-air deadlines, coordinating with production staff and meeting sponsor communication standards.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section aria-labelledby="h-education">
+      <h2 id="h-education">Education &amp; certifications</h2>
+
+      <div class="edu">
+        <div class="row">
+          <h3><span>Investment Funds in Canada (IFC)</span><span style="font-weight: 400">, Canadian Securities Institute</span></h3>
+          <p class="date">Completed Aug 2026</p>
+        </div>
+        <p class="verify screen-only">
+          <a href="https://credentials.csi.ca/03c845ec-00e7-41e5-9c47-b761b9d716b5#acc.be1I6SxQ">View and verify the IFC credential</a>
+        </p>
+      </div>
+
+      <div class="edu">
+        <div class="row">
+          <h3>Bachelor of Business Administration (Honours), Cum Laude</h3>
+          <p class="date">2022 &ndash; 2025</p>
+        </div>
+        <p class="org">Algoma University, Brampton, ON | 84.6% cumulative average</p>
+        <p><strong>Relevant coursework:</strong> Financial Accounting I &amp; II, Management Accounting and Control I &amp; II, Corporate Finance, Financial Management, Business Statistics, Database Programming</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="h-skills">
+      <h2 id="h-skills">Skills</h2>
+      <ul class="skills">
+        <li><strong>Software:</strong> Microsoft Excel (pivot tables, VLOOKUP and XLOOKUP, macros and VBA), Access, Word, PowerPoint, Outlook, Google Workspace, Adobe Acrobat, SQL (basic querying)</li>
+        <li><strong>Systems:</strong> Freshservice, PaperCut, Kofax Equitrac, Active Directory, Google Admin, Windows and macOS, Blender</li>
+        <li><strong>Other:</strong> Typing at 72 wpm, data entry, cash handling and reconciliation, public speaking (competitive debate and Model United Nations)</li>
+      </ul>
+    </section>
+  </main>
+
+  <script>
+    // Mark the active style in the toolbar and point "Download PDF" at the matching file.
+    (function () {
+      var root = document.documentElement;
+      var variant = root.getAttribute('data-variant');
+      var font = root.getAttribute('data-font');
+      var pdfs = {
+        standard: 'assets/resume/Krishal_Maharjan_Resume.pdf',
+        dyslexia: font === 'opendyslexic'
+          ? 'assets/resume/Krishal_Maharjan_Resume_OpenDyslexic.pdf'
+          : 'assets/resume/Krishal_Maharjan_Resume_Dyslexia_Friendly.pdf',
+        contrast: 'assets/resume/Krishal_Maharjan_Resume_High_Contrast.pdf'
+      };
+      document.querySelector('[data-pdf-link]').setAttribute('href', pdfs[variant]);
+      var active = document.querySelector('[data-variant-link="' + variant + '"]');
+      if (active) active.setAttribute('aria-current', 'page');
+    })();
+  </script>
+</body>
+</html>
