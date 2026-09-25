@@ -1,0 +1,10 @@
+# Repo files that are not part of the published website (gitignore syntax).
+.git
+.github
+.gitignore
+.assetsignore
+.wrangler
+node_modules
+wrangler.jsonc
+README.md
+tools

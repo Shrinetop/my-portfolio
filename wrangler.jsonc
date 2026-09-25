@@ -1,0 +1,11 @@
+// Cloudflare Workers config: serves this repo as a static website (no build step).
+// With the GitHub integration (Workers Builds), every push to main deploys the
+// live site and other branches get preview URLs.
+{
+  "name": "my-portfolio",
+  "compatibility_date": "2026-09-25",
+  "assets": {
+    "directory": "./",
+    "not_found_handling": "404-page"
+  }
+}
