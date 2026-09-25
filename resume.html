@@ -11,7 +11,7 @@
   <script>
     /*
      * Pick the resume style before first paint.
-     * ?variant=standard|dyslexia|contrast (and &font=opendyslexic) wins; otherwise
+     * ?variant=standard|dyslexia|contrast wins; otherwise
      * follow the accessibility settings saved on the portfolio (same origin).
      * tools/build-resumes.cjs uses the query string to print each PDF.
      */
@@ -19,14 +19,12 @@
       var root = document.documentElement;
       var params = new URLSearchParams(window.location.search);
       var variant = params.get('variant');
-      var font = params.get('font');
 
       if (!variant) {
         try {
           var s = JSON.parse(localStorage.getItem('a11y-settings') || '{}') || {};
           if (s.dyslexia === true) {
             variant = 'dyslexia';
-            font = s.font;
           } else if (s.vision && s.vision !== 'default') {
             variant = 'contrast';
           }
@@ -40,7 +38,6 @@
 
       if (!/^(dyslexia|contrast)$/.test(variant)) variant = 'standard';
       root.setAttribute('data-variant', variant);
-      if (variant === 'dyslexia' && font === 'opendyslexic') root.setAttribute('data-font', 'opendyslexic');
 
       var names = { dyslexia: 'Dyslexia-friendly', contrast: 'High contrast' };
       if (names[variant]) document.title = 'Krishal Maharjan | Resume (' + names[variant] + ')';
@@ -67,18 +64,6 @@
       font-family: "Lexend";
       src: url("assets/fonts/lexend-latin-700-normal.woff2") format("woff2");
       font-weight: 700 900;
-      font-display: swap;
-    }
-    @font-face {
-      font-family: "OpenDyslexic";
-      src: url("assets/fonts/opendyslexic-latin-400-normal.woff2") format("woff2");
-      font-weight: 400;
-      font-display: swap;
-    }
-    @font-face {
-      font-family: "OpenDyslexic";
-      src: url("assets/fonts/opendyslexic-latin-700-normal.woff2") format("woff2");
-      font-weight: 700;
       font-display: swap;
     }
     @font-face {
@@ -149,14 +134,6 @@
       --heading-case: none;
       --heading-tracking: 0.03em;
       --org-style: normal;
-    }
-
-    /* OpenDyslexic has generous spacing built in, so it needs less added tracking. */
-    :root[data-variant="dyslexia"][data-font="opendyslexic"] {
-      --font: "OpenDyslexic", "Lexend", Verdana, sans-serif;
-      --size: 17px;
-      --tracking: 0;
-      --word: 0.08em;
     }
 
     @media (prefers-color-scheme: dark) {
@@ -405,12 +382,9 @@
         --size: 12pt;
       }
 
-      /* OpenDyslexic runs large per point: 11pt reads like 12pt Lexend. */
       :root[data-variant="dyslexia"] { --leading: 1.5; }
-      :root[data-variant="dyslexia"][data-font="opendyslexic"] { --size: 11pt; --leading: 1.45; }
       :root[data-variant="contrast"] { --leading: 1.35; }
-      [data-variant="contrast"] .resume,
-      [data-font="opendyslexic"] .resume { padding: 0.5in 0.6in; }
+      [data-variant="contrast"] .resume { padding: 0.5in 0.6in; }
 
       [data-variant="dyslexia"] section,
       [data-variant="contrast"] section { margin-top: 18px; }
@@ -468,9 +442,9 @@
   <main class="resume">
     <header class="resume__header">
       <h1>Krishal Maharjan</h1>
-      <ul class="contact-list" aria-label="Contact details">
+      <!-- The phone number is added to the PDFs at build time only (tools/build-resumes.cjs). -->
+      <ul class="contact-list" aria-label="Contact details" data-contact-list>
         <li>Mississauga, ON</li>
-        <li><a href="tel:+14372612129">(437) 261-2129</a></li>
         <li><a href="mailto:kmaharjan1212@gmail.com">kmaharjan1212@gmail.com</a></li>
         <li><a href="https://www.linkedin.com/in/krishal-maharjan">linkedin.com/in/krishal-maharjan</a></li>
       </ul>
@@ -572,12 +546,9 @@
     (function () {
       var root = document.documentElement;
       var variant = root.getAttribute('data-variant');
-      var font = root.getAttribute('data-font');
       var pdfs = {
         standard: 'assets/resume/Krishal_Maharjan_Resume.pdf',
-        dyslexia: font === 'opendyslexic'
-          ? 'assets/resume/Krishal_Maharjan_Resume_OpenDyslexic.pdf'
-          : 'assets/resume/Krishal_Maharjan_Resume_Dyslexia_Friendly.pdf',
+        dyslexia: 'assets/resume/Krishal_Maharjan_Resume_Dyslexia_Friendly.pdf',
         contrast: 'assets/resume/Krishal_Maharjan_Resume_High_Contrast.pdf'
       };
       document.querySelector('[data-pdf-link]').setAttribute('href', pdfs[variant]);

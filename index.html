@@ -33,7 +33,6 @@
         if (s) {
           if (/^(protan-deutan|tritan|mono)$/.test(s.vision)) root.setAttribute('data-vision', s.vision);
           if (s.dyslexia === true) root.setAttribute('data-dyslexia', 'true');
-          if (s.dyslexia === true && s.font === 'opendyslexic') root.setAttribute('data-font', 'opendyslexic');
           if (s.reduceTransparency === true) root.setAttribute('data-transparency', 'reduced');
           if (s.reduceMotion === true) root.setAttribute('data-motion', 'reduced');
         }
@@ -633,23 +632,20 @@
               </div>
             </li>
 
-            <li class="resume-option glass reveal" data-resume-option="dyslexia opendyslexic">
+            <li class="resume-option glass reveal" data-resume-option="dyslexia">
               <span class="resume-option__icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V4h16v3"/><path d="M9 20h6"/><path d="M12 4v16"/></svg>
               </span>
               <h3 class="resume-option__title">Dyslexia-friendly</h3>
               <p class="resume-option__text">
-                Larger text, extra letter and line spacing, and no italics or all-caps, on a soft
-                cream background. Choose your typeface.
+                Larger text in the Lexend typeface, extra letter and line spacing, and no italics or
+                all-caps, on a soft cream background.
               </p>
               <p class="resume-option__meta">PDF &middot; 2 pages</p>
               <p class="resume-option__badge" data-match-badge hidden>Matches your settings</p>
               <div class="resume-option__actions">
                 <a class="btn btn--glass btn--sm" href="assets/resume/Krishal_Maharjan_Resume_Dyslexia_Friendly.pdf" download>
-                  Lexend<span class="visually-hidden"> dyslexia-friendly resume (PDF)</span>
-                </a>
-                <a class="btn btn--glass btn--sm" href="assets/resume/Krishal_Maharjan_Resume_OpenDyslexic.pdf" download>
-                  OpenDyslexic<span class="visually-hidden"> dyslexia-friendly resume (PDF)</span>
+                  Download<span class="visually-hidden"> dyslexia-friendly resume (PDF)</span>
                 </a>
               </div>
             </li>
@@ -772,22 +768,9 @@
         <div class="switch-row">
           <div class="switch-row__text">
             <label class="switch-row__name" for="opt-dyslexia">Dyslexia-friendly text</label>
-            <p class="switch-row__desc" id="opt-dyslexia-desc">Larger text, wider letter and line spacing, no italics or all-caps, and calmer backgrounds.</p>
+            <p class="switch-row__desc" id="opt-dyslexia-desc">The Lexend typeface with larger text, wider letter and line spacing, no italics or all-caps, and calmer backgrounds.</p>
           </div>
           <input class="switch" id="opt-dyslexia" name="dyslexia" type="checkbox" role="switch" aria-describedby="opt-dyslexia-desc">
-        </div>
-        <div class="font-choice" data-font-choice hidden>
-          <p class="font-choice__label" id="font-choice-label">Typeface</p>
-          <div class="segmented" role="radiogroup" aria-labelledby="font-choice-label">
-            <label class="segmented__option">
-              <input type="radio" name="font" value="lexend">
-              <span class="segmented__text font-sample--lexend">Lexend</span>
-            </label>
-            <label class="segmented__option">
-              <input type="radio" name="font" value="opendyslexic">
-              <span class="segmented__text font-sample--opendyslexic">OpenDyslexic</span>
-            </label>
-          </div>
         </div>
       </fieldset>
 
