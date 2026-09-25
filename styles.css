@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Self-hosted reading fonts (only downloaded when dyslexia mode uses them)
+   Self-hosted reading font (only downloaded when dyslexia mode uses it)
    ========================================================================== */
 
 @font-face {
@@ -22,22 +22,6 @@
   font-family: "Lexend";
   src: url("assets/fonts/lexend-latin-700-normal.woff2") format("woff2");
   font-weight: 700 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "OpenDyslexic";
-  src: url("assets/fonts/opendyslexic-latin-400-normal.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "OpenDyslexic";
-  src: url("assets/fonts/opendyslexic-latin-700-normal.woff2") format("woff2");
-  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
@@ -247,11 +231,6 @@
   --blob-opacity: 0.28;
   --grain-opacity: 0;
   font-size: 112.5%;
-}
-
-:root[data-dyslexia="true"][data-font="opendyslexic"] {
-  --font-sans: "OpenDyslexic", "Lexend", Verdana, Tahoma, sans-serif;
-  font-size: 106.25%;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -2170,75 +2149,6 @@ button {
   opacity: 0.65;
 }
 
-.font-choice {
-  margin-top: 8px;
-  padding: 12px 14px;
-  border: 1px solid var(--chip-border);
-  border-radius: 18px;
-  background: var(--inset-bg);
-}
-
-.font-choice[hidden] {
-  display: none;
-}
-
-.font-choice__label {
-  margin-bottom: 8px;
-  color: var(--text-muted);
-  font-size: 0.8125rem;
-  font-weight: 600;
-}
-
-.segmented {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4px;
-  padding: 4px;
-  border-radius: 14px;
-  background: var(--switch-off);
-}
-
-.segmented__option {
-  position: relative;
-}
-
-.segmented__option input {
-  position: absolute;
-  inset: 0;
-  margin: 0;
-  opacity: 0;
-  cursor: pointer;
-}
-
-.segmented__text {
-  display: block;
-  padding: 8px 10px;
-  border-radius: 10px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  text-align: center;
-  cursor: pointer;
-  transition: background-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.segmented__option input:checked + .segmented__text {
-  background: rgb(var(--glass-rgb));
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18);
-}
-
-.segmented__option input:focus-visible + .segmented__text {
-  outline: 2px solid var(--focus);
-  outline-offset: 2px;
-}
-
-.font-sample--lexend {
-  font-family: "Lexend", sans-serif;
-}
-
-.font-sample--opendyslexic {
-  font-family: "OpenDyslexic", sans-serif;
-}
-
 .a11y-panel__foot {
   display: flex;
   flex-wrap: wrap;
@@ -2278,12 +2188,6 @@ button {
 [data-dyslexia="true"] body * {
   letter-spacing: 0.035em !important;
   word-spacing: 0.12em !important;
-}
-
-/* OpenDyslexic has generous spacing built in, so it needs less added tracking. */
-[data-dyslexia="true"][data-font="opendyslexic"] body * {
-  letter-spacing: 0 !important;
-  word-spacing: 0.08em !important;
 }
 
 [data-dyslexia="true"] :is(.caps, .par dt) {

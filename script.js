@@ -54,11 +54,9 @@
      --------------------------------------------------------------------- */
   const SETTINGS_KEY = 'a11y-settings';
   const VISIONS = ['default', 'protan-deutan', 'tritan', 'mono'];
-  const FONTS = ['lexend', 'opendyslexic'];
   const DEFAULTS = {
     vision: 'default',
     dyslexia: false,
-    font: 'lexend',
     reduceTransparency: false,
     reduceMotion: false,
   };
@@ -66,7 +64,6 @@
   const RESUMES = {
     standard: { href: 'assets/resume/Krishal_Maharjan_Resume.pdf', note: '' },
     dyslexia: { href: 'assets/resume/Krishal_Maharjan_Resume_Dyslexia_Friendly.pdf', note: 'Dyslexia-friendly' },
-    opendyslexic: { href: 'assets/resume/Krishal_Maharjan_Resume_OpenDyslexic.pdf', note: 'OpenDyslexic' },
     contrast: { href: 'assets/resume/Krishal_Maharjan_Resume_High_Contrast.pdf', note: 'High contrast' },
   };
 
@@ -80,7 +77,6 @@
     return {
       vision: VISIONS.includes(saved.vision) ? saved.vision : DEFAULTS.vision,
       dyslexia: saved.dyslexia === true,
-      font: FONTS.includes(saved.font) ? saved.font : DEFAULTS.font,
       reduceTransparency: saved.reduceTransparency === true,
       reduceMotion: saved.reduceMotion === true,
     };
@@ -101,7 +97,7 @@
 
   /** Which resume PDF best fits the current settings. */
   function resumeKey() {
-    if (settings.dyslexia) return settings.font === 'opendyslexic' ? 'opendyslexic' : 'dyslexia';
+    if (settings.dyslexia) return 'dyslexia';
     if (settings.vision !== 'default') return 'contrast';
     return 'standard';
   }
@@ -147,8 +143,6 @@
     const fields = panelForm.elements;
     fields.vision.value = settings.vision;
     fields.dyslexia.checked = settings.dyslexia;
-    fields.font.value = settings.font;
-    $('[data-font-choice]', panelForm).hidden = !settings.dyslexia;
     syncSystemSwitch(fields.reduceTransparency, settings.reduceTransparency, media.reducedTransparency.matches);
     syncSystemSwitch(fields.reduceMotion, settings.reduceMotion, media.reducedMotion.matches);
   }
@@ -156,7 +150,6 @@
   function applySettings() {
     setRootAttr('data-vision', settings.vision !== 'default' && settings.vision);
     setRootAttr('data-dyslexia', settings.dyslexia && 'true');
-    setRootAttr('data-font', settings.dyslexia && settings.font === 'opendyslexic' && 'opendyslexic');
     setRootAttr('data-transparency', transparencyReduced() && 'reduced');
     setRootAttr('data-motion', motionReduced() && 'reduced');
     updateResumeLinks();
@@ -170,7 +163,7 @@
 
   panelForm.addEventListener('change', function (event) {
     const input = event.target;
-    if (input.name === 'vision' || input.name === 'font') {
+    if (input.name === 'vision') {
       settings[input.name] = input.value;
     } else if (input.name in DEFAULTS) {
       settings[input.name] = input.checked;
