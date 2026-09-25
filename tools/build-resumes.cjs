@@ -4,6 +4,7 @@
  * The standard PDF (assets/resume/Krishal_Maharjan_Resume.pdf) is the original
  * export and is not touched. Edit resume.html, then run:
  *
+ *   cd tools
  *   npm install
  *   npx playwright install chromium   # first time only
  *   RESUME_PHONE="(555) 555-5555" npm run build:resumes

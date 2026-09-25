@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page not found | Krishal Maharjan</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%230062d1'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial,Helvetica,sans-serif' font-size='26' font-weight='700' fill='%23fff'%3EKM%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap">
+  <script>
+    // This page is served for any missing URL, so resolve links from the site root:
+    // /my-portfolio/ on GitHub Pages (a project site) and / everywhere else.
+    // Written by the parser (not appended) so the stylesheet still blocks render.
+    (function () {
+      var root = /^\/my-portfolio(\/|$)/.test(location.pathname) ? '/my-portfolio/' : '/';
+      document.write('<base href="' + root + '"><link rel="stylesheet" href="' + root + 'styles.css">');
+    })();
+  </script>
+  <noscript><link rel="stylesheet" href="styles.css"></noscript>
+  <script>
+    // Same saved theme and accessibility settings as the rest of the site.
+    (function () {
+      var root = document.documentElement;
+      try {
+        var theme = localStorage.getItem('theme');
+        if (theme === 'light' || theme === 'dark') root.setAttribute('data-theme', theme);
+        var s = JSON.parse(localStorage.getItem('a11y-settings') || 'null');
+        if (s) {
+          if (/^(protan-deutan|tritan|mono)$/.test(s.vision)) root.setAttribute('data-vision', s.vision);
+          if (s.dyslexia === true) root.setAttribute('data-dyslexia', 'true');
+          if (s.reduceTransparency === true) root.setAttribute('data-transparency', 'reduced');
+          if (s.reduceMotion === true) root.setAttribute('data-motion', 'reduced');
+        }
+      } catch (err) { /* storage unavailable */ }
+    })();
+  </script>
+  <style>
+    .not-found {
+      display: grid;
+      min-height: 100vh;
+      min-height: 100dvh;
+      place-items: center;
+      padding: 24px var(--gutter);
+    }
+
+    .not-found__card {
+      max-width: 34rem;
+      padding: clamp(36px, 7vw, 56px) clamp(24px, 6vw, 48px);
+      border-radius: 32px;
+      text-align: center;
+    }
+
+    .not-found__card .eyebrow {
+      justify-content: center;
+    }
+
+    .not-found__card .btn {
+      margin-top: 28px;
+    }
+  </style>
+</head>
+<body>
+  <div class="backdrop" aria-hidden="true">
+    <span class="blob blob--1"></span>
+    <span class="blob blob--2"></span>
+    <span class="blob blob--3"></span>
+    <span class="blob blob--4"></span>
+    <span class="blob blob--5"></span>
+  </div>
+
+  <main class="not-found">
+    <div class="not-found__card glass">
+      <p class="eyebrow caps">Error 404</p>
+      <h1 class="section__title">This page doesn&rsquo;t exist</h1>
+      <p class="section__intro">The link may be out of date or mistyped.</p>
+      <a class="btn btn--primary btn--lg" href="./">Back to the portfolio</a>
+    </div>
+  </main>
+</body>
+</html>
