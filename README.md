@@ -1,5 +1,7 @@
 # my-portfolio
 
+> **Want to change something on the site?** Start with **[GUIDE.md](GUIDE.md)**, a plain-English, step-by-step guide to updating your resume, jobs, projects, skills, photo and colours.
+
 Personal portfolio for Krishal Maharjan, built with plain HTML, CSS and vanilla JavaScript. The design uses a "liquid glass" style: frosted, translucent panels over a drifting, vibrant colour backdrop. The site itself has no build step.
 
 ## Structure
