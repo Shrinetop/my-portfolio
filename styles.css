@@ -995,18 +995,19 @@ button {
   border-bottom: 1px solid var(--line);
 }
 
+/* Profile photo with a light glass ring */
 .avatar {
-  display: grid;
+  display: block;
   flex: none;
-  place-items: center;
-  width: 64px;
-  height: 64px;
-  border-radius: 22px;
-  background: var(--btn-bg);
-  color: var(--on-accent);
-  font-size: 1.25rem;
-  font-weight: 800;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 12px 24px -12px var(--accent);
+  width: 88px;
+  height: 88px;
+  border-radius: 28px;
+  object-fit: cover;
+  background: var(--inset-bg);
+  box-shadow:
+    0 0 0 3px rgb(var(--glass-rgb) / 0.9),
+    0 0 0 4px var(--chip-border),
+    0 14px 30px -12px rgba(0, 0, 0, 0.5);
 }
 
 .profile-card__name {
@@ -1406,18 +1407,24 @@ button {
   gap: 16px;
 }
 
+/* Employer logo on a white tile, so every logo reads in light and dark themes */
 .role__badge {
   display: grid;
   place-items: center;
-  width: 52px;
-  height: 52px;
-  border-radius: 17px;
-  background: var(--btn-bg);
-  color: var(--on-accent);
-  font-size: 0.95rem;
-  font-weight: 800;
-  letter-spacing: 0.02em;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 10px 22px -12px var(--accent);
+  width: 64px;
+  height: 64px;
+  padding: 5px;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow:
+    inset 0 0 0 1px rgba(15, 23, 42, 0.08),
+    0 10px 22px -12px rgba(0, 0, 0, 0.45);
+}
+
+.role__badge img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .role__title {
@@ -1530,6 +1537,12 @@ button {
 @media (max-width: 639px) {
   .role__head {
     grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .role__badge {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
   }
 
   .role__date {

@@ -10,12 +10,15 @@ Personal portfolio for Krishal Maharjan, built with plain HTML, CSS and vanilla 
 ├── styles.css              # Design tokens, glass material, themes, accessibility modes
 ├── script.js               # Accessibility panel, theme, adaptive resume links, nav, animations
 ├── resume.html             # Web version of the resume, and the source for the accessible PDFs
+├── 404.html                # "Page not found" page
 ├── assets/
 │   ├── resume/             # Standard PDF + generated dyslexia-friendly and high-contrast PDFs
 │   ├── fonts/              # Self-hosted Lexend and Atkinson Hyperlegible (+ OFL licences)
-│   └── img/                # ifc-badge.png, the IFC credential badge
-├── tools/build-resumes.cjs # Regenerates the accessible PDFs from resume.html
-└── package.json            # Only used for the PDF build
+│   └── img/                # Profile photo, employer logos, IFC badge, link-preview card
+├── wrangler.jsonc          # Cloudflare hosting config
+├── .assetsignore           # Repo files Cloudflare should not publish (README, tools, config)
+├── _headers                # Caching and security headers on Cloudflare
+└── tools/                  # Resume PDF build (not published)
 ```
 
 ## Run locally
@@ -51,15 +54,30 @@ The phone number appears in the PDFs only, not on the website. It isn't stored i
 **Updating the resume:** replace the standard PDF, make the same edits in `resume.html`, then rebuild the others with your phone number:
 
 ```sh
+cd tools
 npm install
 npx playwright install chromium   # first time only
 RESUME_PHONE="(555) 555-5555" npm run build:resumes
 ```
 
-## IFC badge
+## Images
 
-The About section shows the IFC badge (`assets/img/ifc-badge.png`), linked to the CSI credential page. If the image is ever missing, a styled placeholder tile is shown instead.
+- `profile-176.webp` / `profile-264.webp`: profile photo in the hero card. These copies have all metadata removed; the original iPhone photo contained GPS coordinates, so don't upload originals straight to `assets/`.
+- `logo-*.webp`: employer logos, trimmed and squared for the white tiles in Experience.
+- `og-card.jpg`: the 1200×630 image link previews show when the site is shared.
+- `ifc-badge.png`: IFC badge, linked to the CSI credential page.
 
-## Deploying
+Link previews need absolute URLs, so `og:url`, `og:image` and the canonical link in `index.html` and `resume.html` include the site's address. Update them if the address changes.
 
-The site is fully static, so GitHub Pages works as-is. Go to **Settings → Pages → Deploy from a branch**, pick the branch, and set the folder to `/ (root)`.
+## Hosting
+
+The site is live on GitHub Pages at <https://shrinetop.github.io/my-portfolio/>. It deploys from `main` (**Settings → Pages → Deploy from a branch → `main`, `/ (root)`**), so merging to `main` publishes changes.
+
+### Optional: Cloudflare
+
+The repo is also ready to host on Cloudflare Workers (free), using `wrangler.jsonc`, `.assetsignore` and `_headers`. Compared with GitHub Pages, it adds caching and security headers, a preview URL for every branch, and free privacy-friendly analytics.
+
+1. In the Cloudflare dashboard, go to **Workers & Pages → Create → Import a repository** and choose `Shrinetop/my-portfolio`.
+2. Keep the project name `my-portfolio` (it must match `name` in `wrangler.jsonc`). Leave the build command empty; the deploy command is `npx wrangler deploy`.
+3. The site goes live at the free address `my-portfolio.<your-subdomain>.workers.dev`. Every push to `main` redeploys it.
+4. If you switch over, replace `https://shrinetop.github.io/my-portfolio` with the new address in `index.html` and `resume.html` (canonical, `og:url`, `og:image`). Then turn off GitHub Pages so there's only one copy of the site.
