@@ -955,6 +955,7 @@ button {
 
 .hero__role {
   margin-top: 16px;
+  text-wrap: balance;
   color: var(--text);
   font-size: clamp(1.15rem, 2.4vw, 1.45rem);
   font-weight: 600;
@@ -1579,6 +1580,23 @@ button {
 
 .project--featured {
   grid-column: 1 / -1;
+}
+
+/*
+ * With only one other case study, it also spans the full width and lays its
+ * Problem / Action / Result side by side. Add more and they fall back into the grid.
+ */
+.project--featured + .project:last-child {
+  grid-column: 1 / -1;
+}
+
+.project--featured + .project:last-child .par {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px 32px;
+}
+
+.project--featured + .project:last-child .par__row {
+  align-content: start;
 }
 
 .project__head {
